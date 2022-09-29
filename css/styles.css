@@ -20,33 +20,15 @@ html {
 }
 
 body {
-  position: relative;
   background-color: hsl(185, 75%, 39%);
+  background-image: url(/images/bg-pattern-top.svg), url(/images/bg-pattern-bottom.svg);
+  background-repeat: no-repeat;
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 1.8rem;
   color: hsl(229, 23%, 23%);
   font-weight: 400;
   line-height: 1;
-  overflow: hidden;
-}
-
-.body-pattern {
-  display: block;
-  position: absolute;
-  width: 128rem;
-
-  object-fit: contain;
-  z-index: -1;
-}
-
-.body-pattern--top {
-  top: -60rem;
-  left: -40rem;
-}
-
-.body-pattern--bottom {
-  bottom: -60rem;
-  right: -40rem;
 }
 
 main {
@@ -59,25 +41,9 @@ main {
 /* LAYOUT STYLES */
 /* ******************************** */
 
-.profile-card {
-  border-radius: 11px;
-  overflow: hidden;
-}
-
-.profile-card-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: hsl(0, 0%, 100%);
-}
-
-.user-personal-info-details {
-  margin-bottom: 1.6rem;
-}
-
 .profile-card-bg-pattern {
+  display: block;
   width: 100%;
-  height: 14rem;
   background-image: url(/images/bg-pattern-card.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -85,15 +51,36 @@ main {
 
 .profile-card-img {
   display: block;
-  width: 12rem;
+  width: 10rem;
+  height: 10rem;
+  margin-bottom: 0.8rem;
   border: 5px solid hsl(0, 0%, 100%);
   transform: scale(1.05) translateY(-50%);
   border-radius: 50%;
 }
 
-.user-personal-info {
+.profile-card {
+  width: 42rem;
+  margin: 1.6rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.profile-card-content {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.user-personal-content {
   margin-top: -3.2rem;
   margin-bottom: 4.8rem;
+}
+
+.user-personal-details {
+  margin-bottom: 1.6rem;
+}
+
+.user-points {
+  margin-left: 0.8rem;
 }
 
 .user-location {
@@ -101,15 +88,10 @@ main {
   text-align: center;
 }
 
-.user-points {
-  margin-left: 0.8rem;
-}
-
-.user-social-info {
+.user-social-content {
   padding: 3.2rem 6.4rem;
-  border-top: 1px solid hsl(0, 0%, 85%);
+  border-top: 1px solid hsla(227, 10%, 46%, 0.2);
   align-self: stretch;
-  gap: 4.8rem;
 }
 
 .user-social-number {
@@ -155,7 +137,15 @@ main {
   flex-direction: column !important;
 }
 
-.flex-xy-center {
+.flex-jc-between {
+  justify-content: space-between !important;
+}
+
+.flex-al-center {
+  align-items: center !important;
+}
+
+.flex-center {
   justify-content: center !important;
   align-items: center !important;
 }
@@ -164,16 +154,20 @@ main {
 /* MEDIA QUERIES */
 /* ******************************** */
 
-/* breakpoint 470px */
-@media all and (max-width: 29.375em) {
+/* breakpoint 460px */
+@media all and (max-width: 28.75em) {
   html {
-    font-size: 45.5%;
+    font-size: 47.5%;
+  }
+
+  .user-social-content {
+    padding: 3.2rem 4.2rem;
   }
 
   .user-name,
   .user-points,
   .user-social-number {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   .user-location {
@@ -181,13 +175,6 @@ main {
   }
 
   .user-social-text {
-    font-size: 1.6rem;
-  }
-}
-
-/* breakpoint 370px */
-@media all and (max-width: 23.125em) {
-  html {
-    font-size: 37.5%;
+    font-size: 1.4rem;
   }
 }
